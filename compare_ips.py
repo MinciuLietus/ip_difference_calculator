@@ -75,6 +75,7 @@ def ipv6_address_to_decimal(*args):
     return result
 
 
+# Function that converts a set of hexadecimal characters to decimal
 def convert_ipv6_set_chars(hexadecimal):
     result = 0
     hexadecimals = []
