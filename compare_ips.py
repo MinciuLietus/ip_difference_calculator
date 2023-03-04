@@ -46,9 +46,7 @@ def calculate_ipv6(first_ip, second_ip):
     first_ip_decimal = ipv6_address_to_decimal(*first_ips)
     second_ip_decimal = ipv6_address_to_decimal(*second_ips)
 
-    result = second_ip_decimal - first_ip_decimal
-
-    return result
+    return second_ip_decimal - first_ip_decimal
 
 
 def ipv4_address_to_decimal(*args):
@@ -97,7 +95,7 @@ def convert_ipv6_set_chars(hexadecimal):
 
 
 if __name__ == "__main__":
-    wrong_arg_msg = "Usage: main.py first_ip second_ip [--ipv4] [--ipv6]"
+    wrong_arg_msg = "Usage: compare_ips.py first_ip second_ip [--ipv4] [--ipv6]"
     try:
         first_ip_arg, second_ip_arg, version_key = sys.argv[1], sys.argv[2], sys.argv[3]
     except Exception:
@@ -114,7 +112,7 @@ if __name__ == "__main__":
 
     try:
         final_result = main(*ips, ip_version)
-    except ValueError as ex:
+    except ValueError:
         print(f"The {ip_version.upper()} address format is invalid.")
         sys.exit(0)
 
