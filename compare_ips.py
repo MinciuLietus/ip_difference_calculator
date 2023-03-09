@@ -96,27 +96,25 @@ def convert_ipv6_set_chars(hexadecimal):
 
 
 if __name__ == "__main__":
-    print(main('2001:0db8:0000:0000:0000:8a2e:0370:7334', '2001:0db8:0000:0000:0000:8a2e:0370:7555', 'ipv6'))
-    
-    # wrong_arg_msg = "Usage: compare_ips.py first_ip second_ip [--ipv4] [--ipv6]"
-    # try:
-    #     first_ip_arg, second_ip_arg, version_key = sys.argv[1], sys.argv[2], sys.argv[3]
-    # except Exception:
-    #     print("Unexpected arguments. Try again.\n", wrong_arg_msg)
-    #     sys.exit(0)
+    wrong_arg_msg = "Usage: compare_ips.py first_ip second_ip [--ipv4] [--ipv6]"
+    try:
+        first_ip_arg, second_ip_arg, version_key = sys.argv[1], sys.argv[2], sys.argv[3]
+    except Exception:
+        print("Unexpected arguments. Try again.\n", wrong_arg_msg)
+        sys.exit(0)
 
-    # ip_version = ALLOWED_VERSIONS.get(version_key.strip("--").lower())
+    ip_version = ALLOWED_VERSIONS.get(version_key.strip("--").lower())
 
-    # if not ip_version:
-    #     print("Selected version is not compatible.")
-    #     sys.exit(0)
+    if not ip_version:
+        print("Selected version is not compatible.")
+        sys.exit(0)
 
-    # ips = first_ip_arg, second_ip_arg
+    ips = first_ip_arg, second_ip_arg
 
-    # try:
-    #     final_result = main(*ips, ip_version)
-    # except ValueError:
-    #     print(f"The {ip_version.upper()} address format is invalid.")
-    #     sys.exit(0)
+    try:
+        final_result = main(*ips, ip_version)
+    except ValueError:
+        print(f"The {ip_version.upper()} address format is invalid.")
+        sys.exit(0)
 
-    # print(final_result)
+    print(final_result)
